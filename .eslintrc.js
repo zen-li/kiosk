@@ -55,6 +55,6 @@ module.exports = {
       "no-underscore-dangle": 0,
       "no-param-reassign": 0,
       "arrow-body-style": ["error", "always"],
-      "max-len": ["error", 120, 4, { "ignoreUrls": true, "ignoreTrailingComments": true }]
+      "max-len": ["error", 120, 4, { "ignoreUrls": true, "ignoreTrailingComments": true , "ignoreStrings": true }]
     }
   }

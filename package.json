@@ -15,7 +15,9 @@
   "dependencies": {
     "axios": "^0.16.2",
     "nuxt": "^1.0.0-rc3",
-    "vuetify": "^0.14.11"
+    "vue-awesome-swiper": "^2.6.4",
+    "vuetify": "^0.14.11",
+    "vuex": "^2.4.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",

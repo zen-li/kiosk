@@ -41,8 +41,13 @@ module.exports = {
     */
     vendor: ['vuetify', 'axios']
   },
-  plugins: ['~plugins/vuetify.js'],
+  plugins: [
+      { src: '~plugins/vuetify.js', ssr: true },
+      { src: '~plugins/swiper.js', ssr: false}
+  ],
   css: [
-      { src: '~assets/style/app.styl', lang: 'styl' }
+      { src: '~assets/style/app.styl', lang: 'styl' },
+      { src: '~assets/style/main.css' },
+      { src: 'swiper/dist/css/swiper.css' }
   ]
 }

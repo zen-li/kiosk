@@ -1,0 +1,14 @@
+.promobox {
+    margin-right: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.promoboxTitle {
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: normal;
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

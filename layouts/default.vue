@@ -1,11 +1,15 @@
 <template>
-  <v-app light>
+  <v-app>
      <!-- top navigation bar -->
     <v-toolbar dark class="primary">
+        <!-- shopping cart button -->
+        <v-dialog v-model="dialog" width="50%">
+            <v-btn class="pink mr-5 black--after" large absolute bottom right fab v-badge="badge" slot="activator">
+                <v-icon light >local_grocery_store</v-icon>
+            </v-btn>
+            <cart></cart>
+        </v-dialog>
         <!-- title and logo -->
-        <v-btn class="pink mr-5" light large absolute bottom right fab>
-            <v-icon light>local_grocery_store</v-icon>
-        </v-btn>
         <v-toolbar-title>数字书刊亭 · Next</v-toolbar-title>
         <v-spacer></v-spacer>
         <!-- navigation buttons -->
@@ -16,18 +20,48 @@
             <v-btn to="/book" flat class="title">新知图书</v-btn>
             <v-btn to="/magazine" flat class="title">名刊会</v-btn>
             <v-btn to="/merchandise" flat class="title">文化周边</v-btn>
-            <v-btn to="/postcard" flat class="title">自助明信片</v-btn>
         </v-toolbar-items>
         <!-- shopping card fab button -->
         <v-spacer></v-spacer>
     </v-toolbar>
     <!-- router view -->
-    <main>
+    <main class="container">
     <nuxt/>
     </main>
     <!-- footer -->
   </v-app>
 </template>
+
+<script>
+import Cart from '../components/cart'
+
+export default {
+    components: {
+        Cart
+    },
+
+    data () {
+        return {
+            dialog: false
+        }
+    },
+
+    computed: {
+        badge () {
+            const count = this.$store.state.cartList.length
+            let badgeData = null
+            if (count !== 0) {
+                badgeData = {
+                    overlap: true,
+                    right: true,
+                    value: count
+                }
+            }
+            return badgeData
+        }
+    }
+}
+</script>
 
 <style>
 html
@@ -37,7 +71,6 @@ html
              SimSun, sans-serif;;
   font-size: 16px;
   word-spacing: 1px;
-  background-color: #eeeeee;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
@@ -48,5 +81,8 @@ html
 {
   box-sizing: border-box;
   margin: 0;
+}
+.container {
+    padding: 50px;
 }
 </style>

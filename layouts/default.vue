@@ -1,35 +1,34 @@
 <template>
-  <v-app>
-     <!-- top navigation bar -->
-    <v-toolbar dark class="primary">
-        <!-- shopping cart button -->
-        <v-dialog v-model="dialog" width="50%">
-            <v-btn class="pink mr-5 black--after" large absolute bottom right fab v-badge="badge" slot="activator">
-                <v-icon light >local_grocery_store</v-icon>
-            </v-btn>
-            <cart></cart>
-        </v-dialog>
-        <!-- title and logo -->
-        <v-toolbar-title>数字书刊亭 · Next</v-toolbar-title>
-        <v-spacer></v-spacer>
-        <!-- navigation buttons -->
-        <v-btn icon to="/">
-            <v-icon>home</v-icon>
-        </v-btn>
-        <v-toolbar-items class="ml-5">
-            <v-btn to="/book" flat class="title">新知图书</v-btn>
-            <v-btn to="/magazine" flat class="title">名刊会</v-btn>
-            <v-btn to="/merchandise" flat class="title">文化周边</v-btn>
-        </v-toolbar-items>
-        <!-- shopping card fab button -->
-        <v-spacer></v-spacer>
-    </v-toolbar>
-    <!-- router view -->
-    <main class="container">
-    <nuxt/>
-    </main>
-    <!-- footer -->
-  </v-app>
+    <v-app light>
+        <!-- top navigation bar -->
+        <v-toolbar dark class="primary" :fixed="true">
+            <!-- shopping cart button -->
+            <v-dialog v-model="dialog" width="50%">
+                <v-btn class="pink mr-5 black--after" large absolute bottom right fab v-badge="badge" slot="activator">
+                    <v-icon light >local_grocery_store</v-icon>
+                </v-btn>
+                <cart></cart>
+            </v-dialog>
+            <!-- title and logo -->
+            <v-toolbar-title>数字书刊亭 · Next</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <!-- navigation buttons -->
+            <v-toolbar-items class="ml-5">
+                <v-btn to="/" flat class="title" :exact="true">精彩推荐</v-btn>
+                <v-btn to="/book" flat class="title">新知图书</v-btn>
+                <v-btn to="/magazine" flat class="title">名刊会</v-btn>
+                <v-btn to="/merchandise" flat class="title">优选商品</v-btn>
+                <v-btn to="/tuangou" flat class="title">优惠团购</v-btn>
+            </v-toolbar-items>
+            <!-- shopping card fab button -->
+            <v-spacer></v-spacer>
+        </v-toolbar>
+        <!-- router view -->
+        <main>
+        <nuxt/>
+        </main>
+        <!-- footer -->
+    </v-app>
 </template>
 
 <script>
@@ -77,12 +76,12 @@ html
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
+::-webkit-scrollbar {
+    display:none
+}
 *, *:before, *:after
 {
   box-sizing: border-box;
   margin: 0;
-}
-.container {
-    padding: 50px;
 }
 </style>

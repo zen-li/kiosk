@@ -1,5 +1,11 @@
+a {
+    text-decoration: none;
+}
+.home-container {
+    background-color: #eeeeee;
+}
 .promobox {
-    margin-right: 15px;
+    margin-right: 40px;
     margin-bottom: 10px;
     border-radius: 5px;
 }
@@ -11,4 +17,42 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.card-cover {
+    border-radius: 5px;
+}
+.card-title {
+    color: #212121;
+    width: 140px;
+    display: block;
+    font-size: 18px;
+    line-height: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    position: relative;
+    white-space: nowrap;
+}
+.card-subtitle {
+    color: #454545;
+    width: 140px;
+    display: block;
+    font-size: 14px;
+    line-height: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    position: relative;
+    white-space: nowrap;
+}
+.paragraph-end {
+    background-image: -webkit-gradient(linear,left top,right top,color-stop(0%,rgba(255,255,255,0)),color-stop(100%,rgba(255,255,255,1)));
+    background-image: -webkit-linear-gradient(left,rgba(255,255,255,0),rgba(255,255,255,1));
+    background: linear-gradient(to right,rgba(255,255,255,0),rgba(255,255,255,1));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,StartColorStr='#00ffffff',EndColorStr='#ffffff');
+    bottom: 0;
+    height: 25px;
+    max-height: 100%;
+    position: absolute;
+    right: 0;
+    width: 45px;
+    height: 19px;
 }

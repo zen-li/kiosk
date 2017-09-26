@@ -55,6 +55,7 @@ export default {
                 id: this.merch.id,
                 picture: this.merch.cover,
                 title: this.merch.name,
+                qty: 1,
                 price: this.merch.new_price
             }
             this.$store.commit('addCart', cartItem)

@@ -55,6 +55,7 @@ export default {
                 id: this.book.id,
                 picture: this.book.cover,
                 title: this.book.name,
+                qty: 1,
                 price: this.book.new_price
             }
             this.$store.commit('addCart', cartItem)

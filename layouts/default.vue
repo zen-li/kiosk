@@ -3,11 +3,11 @@
         <!-- top navigation bar -->
         <v-toolbar dark class="primary" :fixed="true">
             <!-- shopping cart button -->
-            <v-dialog v-model="dialog" width="50%">
-                <v-btn class="pink mr-5 black--after" large absolute bottom right fab v-badge="badge" slot="activator">
+                <v-btn class="pink mr-5 black--after" large absolute bottom right fab v-badge="badge" @click.native.stop="displayCart">
                     <v-icon light >local_grocery_store</v-icon>
                 </v-btn>
-                <cart></cart>
+            <v-dialog v-model="dialog" width="50%">
+                <cart :payment.sync="payment"></cart>
             </v-dialog>
             <!-- title and logo -->
             <v-toolbar-title>数字书刊亭 · Next</v-toolbar-title>
@@ -39,9 +39,17 @@ export default {
         Cart
     },
 
+    methods: {
+        displayCart () {
+            this.dialog = true
+            this.payment = false
+        }
+    },
+
     data () {
         return {
-            dialog: false
+            dialog: false,
+            payment: false
         }
     },
 

@@ -13,6 +13,9 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.cat.net/css?family=Roboto:300,400,500,700|Material+Icons'}
+    ],
+    script: [
+        { src: 'https://mock.qikan.net/jr-qrcode/1.1.0/jr-qrcode.js' }
     ]
   },
   /*
@@ -43,7 +46,8 @@ module.exports = {
   },
   plugins: [
       { src: '~plugins/vuetify.js', ssr: true },
-      { src: '~plugins/swiper.js', ssr: false}
+      { src: '~plugins/swiper.js', ssr: false },
+    //   { src: '~plugins/qrcode.js', ssr: false }
   ],
   css: [
       { src: '~assets/style/app.styl', lang: 'styl' },

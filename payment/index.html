@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+        <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
+        <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+        <script src="weui-distpicker.js"></script>
+        <script>
+            Vue.component('weui-distpicker', WeuiDistpicker.default)
+        </script>
+
+        <style>
+            .weui-label {
+                width: 65px;
+            }
+
+            .delivery-address {
+                padding: 14px 15px 10px; color: #999; font-size: 13px;
+            }
+
+            .delivery-address-add {
+                padding: 14px 15px 10px; color: #999; font-size: 13px;
+            }
+
+            .delivery-address-add img {
+                margin-left: -4px; width: 32px; height: 32px; vertical-align: middle
+            }
+
+            .delivery-address-add span {
+                vertical-align: middle;
+            }
+
+            .delivery-address-save {
+                margin: 20px 20px 0
+            }
+
+            .pay-btn-box {
+                width: 80px; position: absolute; right: 0
+            }
+        </style>
+
+        <script src="resource.js"></script>
+
+        <script>
+            var goodsMap = function () {
+                var arr = []
+                    .concat(resource.magazines)
+                    .concat(resource.books)
+                    .concat(resource.merchandise)
+
+                var obj = {}
+
+                for (var i = 0; i < arr.length; i++) {
+                    obj[arr[i].id] = arr[i]
+                }
+
+                return obj
+            }
+        </script>
+        <script>
+            var getShoppingCartFromUrl = function (goodsMap) {
+                var arr = location.search
+                    .replace('?g=', '')
+                    .split(';')
+                var goods = []
+                for (var i = 0; i < arr.length; i++) {
+                    var tmp = arr[i].split(',')
+                    var good = Object.assign({}, goodsMap[tmp[0]])
+                    good.amount = tmp[1]
+                    goods.push(good)
+                }
+
+                return goods
+            }
+        </script>
+        <script>
+            var goods = getShoppingCartFromUrl(
+                goodsMap()
+            )
+        </script>
+    </head>
+
+    <body>
+        <div id="app">
+            <!-- 购物车界面 -->
+            <div class="shopping-cart" v-if="shoppingCart.isActivated">
+                <div
+                    v-if="hasAddress"
+                    class="delivery-address">
+                    配送信息<br><span v-html="fullAddress"></span>
+                </div>
+
+                <div
+                    v-else
+                    v-on:click="addAddress"
+                    class="delivery-address-add">
+                    <img src='data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACj0lEQVRYR+1WMXbaQBD9Q+N0yRHkE9g+QVhfwLgTaYJvgDtIE9xEShXnBIEmUqrgC3jJCQwnCEcwVVxp/EZa2QKtpNVzQQpvx0O78+f/mT9D2POhPcfHK4BWDIy07zH4rINOF4AH4NhIuASwTpAsCHQTqnjtKq0TAAkM4DOBBi4PM3gK4MoFSCOAse73APwA8C4LzjMGFh10ll/UT8kcn/SH4wSJsNEj0JkBeQ/gIlDRvA50LYCR9gcEkuBg8A2AYVNWhq3rHAiDL0IVCyPWUwnAZP7b3LoMVHTtQn/+zVj3hwC+md/nVUxYAUgWBLoztFcGH2l/IuSEKr6ygSuAuD/Av8OJmossW8cKYKz9KUAfhfZQxVID1jPWfZY/AhVVMjnS/jyTg2eBiktFXLposv9rdD+s09wRgLBZ+V4JwDNtdsRFKlwAyPfPLKAkp42BlLKm6pWHWwBIu8kmaRnArb8koiMCneR9nvc6M7/dqaBFZg0QZ3w6RLQp3QVLUS8DFZ1sfbtbXbasRtrvEki3aUMGq1DFGcAatmw1UKrsJ3NhMm5oXiW8Nwz8KYJjYmm3LdOqkstZAlv2rjUgVs3gO2ZehadxPsDSJ/+/IszbsMmEWnaBMSO3Nqw1jrY+0GRstVYMYB6o6Lyq+se3/XTxCE4j2Resp7UVG+fywBA/kL5vPQkLrZdORGbevKEHz3kYGX1lCKXjOEEy/Kp+fW/jAy8ax3mg4kIicjD40mUhIZDsAekUbbJ0p5WMmadGDnlTViyp6lVxJWPwkQmaBWbeENHgRStZgQmPgInsCG4y8OwAD0Ob5rv3GxkoXjAt1WNwFwxPhpbJdgXCmkALBs+bZCq+2QqAW/btvnoFsHcGHgE6mnkwddPAMwAAAABJRU5ErkJggg=='/>
+                    <span>添加收货地址</span>
+                </div>
+
+                <div>
+                    <div class="weui-panel weui-panel_access">
+                        <div class="weui-panel__hd">您选购的商品</div>
+                        <div class="weui-panel__bd">
+                            <a
+                                href="javascript:void(0);"
+                                class="weui-media-box weui-media-box_appmsg"
+                                v-for="(good, index) of shoppingCart.goods"
+                                :key="index">
+                                <div class="weui-media-box__hd">
+                                    <img class="weui-media-box__thumb" :src="good.cover || ''" alt="">
+                                </div>
+                                <div class="weui-media-box__bd">
+                                    <h4 class="weui-media-box__title">{{ good.title }}</h4>
+                                    <p class="weui-media-box__desc">单价: ¥{{ good.unitPrice }}</p>
+                                    <p class="weui-media-box__desc">数量: {{ good.amount }}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="weui-tabbar">
+                    <div class="weui-cell">
+                        <div class="weui-cell__bd">总金额: ¥{{ totalAmount }}</div>
+                    </div>
+                    <div class="weui-cell pay-btn-box">
+                        <a
+                            v-if="hasAddress"
+                            v-on:click="pay"
+                            href="javascript:;"
+                            class="weui-btn weui-btn_mini weui-btn_primary">
+                            支付
+                        </a>
+                        <a
+                            v-else
+                            href="javascript:;"
+                            class="weui-btn weui-btn_mini weui-btn_disabled weui-btn_primary">
+                            支付
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 添加地址界面 -->
+            <div class="addresses-management" v-if="addressesManagement.isActivated">
+                <div class="weui-cells weui-cells_form">
+                    <div class="weui-cell weui-cell_vcode">
+                        <div class="weui-cell__hd">
+                            <label class="weui-label">省市区</label>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" type="tel" disabled :value="pca" />
+                        </div>
+                        <div class="weui-cell__ft">
+                            <button class="weui-vcode-btn" v-on:click="toggleDistpickerStatus">点我选择</button>
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd">
+                            <label class="weui-label">地址</label>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <input
+                                class="weui-input"
+                                type="tel"
+                                placeholder="请输入详细地址"
+                                v-model="addressesManagement.addresses[0].detial">
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd">
+                            <label class="weui-label">姓名</label>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <input
+                                class="weui-input"
+                                type="tel"
+                                placeholder="请输入您的姓名"
+                                v-model="addressesManagement.addresses[0].name">
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd">
+                            <label class="weui-label">手机号</label>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <input
+                                class="weui-input"
+                                type="tel"
+                                placeholder="请输入您的手机号"
+                                v-model="addressesManagement.addresses[0].phone">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="delivery-address-save">
+                    <a
+                        v-if="hasAddress"
+                        v-on:click="saveAddress"
+                        href="javascript:;"
+                        class="weui-btn weui-btn_primary">
+                        保存
+                    </a>
+                    <a
+                        v-else
+                        class="weui-btn weui-btn_disabled weui-btn_primary">
+                        保存
+                    </a>
+                </div>
+
+                <weui-distpicker
+                    v-if="addressesManagement.distpickerEnabled"
+                    :province="addressesManagement.addresses[0].province"
+                    :city="addressesManagement.addresses[0].city"
+                    :area="addressesManagement.addresses[0].area"
+                    @change="changePca">
+                </weui-distpicker>
+            </div>
+
+            <!-- 支付成功界面 -->
+            <div class="payment-success" v-if="paymentSuccess.isActivated">
+                <div class="weui-msg__icon-area">
+                    <i class="weui-icon-success weui-icon_msg"></i>
+                </div>
+                <p>支付成功!</p>
+                <p>您的商品即将配送, 欢迎再次购买!</p>
+            </div>
+        </div>
+
+        <style>
+            .payment-success {
+                margin-top: 100px;
+                text-align: center;
+            }
+        </style>
+
+        <script>
+            var app = new Vue({
+                el: '#app',
+
+                data: {
+                    shoppingCart: {
+                        isActivated: true,
+                        goods: goods
+                    },
+
+                    addressesManagement: {
+                        isActivated: false,
+                        distpickerEnabled: false,
+                        addresses: [
+                            {
+                                province: '北京市',
+                                city: '北京市市辖区',
+                                area: '西城区',
+                                detial: '',
+                                name: '',
+                                phone: ''
+                            }
+                        ]
+                    },
+
+                    paymentSuccess: {
+                        isActivated: false
+                    }
+                },
+
+                methods: {
+                    addAddress: function () {
+                        this.shoppingCart.isActivated = false
+                        this.addressesManagement.isActivated = true
+                    },
+
+                    saveAddress: function () {
+                        this.shoppingCart.isActivated = true
+                        this.addressesManagement.isActivated = false
+                    },
+
+                    toggleDistpickerStatus: function () {
+                        this.addressesManagement.distpickerEnabled = !this.addressesManagement.distpickerEnabled
+                    },
+
+                    changePca: function (pca) {
+                        var address = this.addressesManagement.addresses[0]
+                        address.province = pca[0].label
+                        address.city = pca[1].label
+                        address.area = pca[2].label
+                    },
+
+                    pay: function () {
+                        this.shoppingCart.isActivated = false
+                        this.paymentSuccess.isActivated = true
+                    }
+                },
+
+                watch: {
+                    'addressesManagement.addresses[0].detial': function (newval, oldval) {
+                        console.log(newval, oldval)
+                    }
+                },
+
+                computed: {
+                    totalAmount: function () {
+                        var goods = this.shoppingCart.goods
+                        var totalAmount = 0
+                        for (var i = 0; i < goods.length; i += 1) {
+                            var good = goods[i]
+                            totalAmount += parseFloat(good.unitPrice) * 100 * good.amount
+                        }
+                        totalAmount = totalAmount.toString()
+                        return totalAmount.substr(0, totalAmount.length - 2) + '.' + totalAmount.substr(totalAmount.length - 2)
+                    },
+
+                    fullAddress: function () {
+                        var address = this.addressesManagement.addresses[0]
+                        return address.province + ' ' +
+                        address.city + ' ' +
+                        address.area + '<br>' +
+                        address.detial + '<br>' +
+                        address.name + ' ' +
+                        address.phone
+                    },
+
+                    hasAddress: function () {
+                        var address = this.addressesManagement.addresses[0]
+                        return address.province !== '' &&
+                        address.city !== '' &&
+                        address.area !== '' &&
+                        address.detial !== '' &&
+                        address.name !== '' &&
+                        address.phone !== ''
+                    },
+
+                    pca: function () {
+                        var address = this.addressesManagement.addresses[0]
+                        return address.province + ' ' + address.city + ' ' + address.area
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
+
+
+

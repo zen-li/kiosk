@@ -48,7 +48,7 @@
                 var arr = []
                     .concat(resource.magazines)
                     .concat(resource.books)
-                    .concat(resource.merchandise)
+                    .concat(resource.merchandises)
 
                 var obj = {}
 
@@ -65,7 +65,11 @@
                     .replace('?g=', '')
                     .split(';')
                 var goods = []
+
                 for (var i = 0; i < arr.length; i++) {
+                    if (!arr[i]) {
+                        continue
+                    }
                     var tmp = arr[i].split(',')
                     var good = Object.assign({}, goodsMap[tmp[0]])
                     good.amount = tmp[1]
@@ -83,7 +87,7 @@
     </head>
 
     <body>
-        <div id="app">
+        <div id="app" style="display: none">
             <!-- 购物车界面 -->
             <div class="shopping-cart" v-if="shoppingCart.isActivated">
                 <div
@@ -114,8 +118,18 @@
                                 </div>
                                 <div class="weui-media-box__bd">
                                     <h4 class="weui-media-box__title">{{ good.title }}</h4>
-                                    <p class="weui-media-box__desc">单价: ¥{{ good.unitPrice }}</p>
-                                    <p class="weui-media-box__desc">数量: {{ good.amount }}</p>
+                                    <!-- <p class="weui-media-box__desc" :class="{ 'line-through': !!good.new_price }">
+                                        <span class="good-info-title">单价</span>: ¥{{ good.price }}
+                                    </p> -->
+                                    <p class="weui-media-box__desc" v-if="!good.new_price">
+                                        <span class="good-info-title">单价</span>: ¥{{ good.price }}
+                                    </p>
+                                    <p class="weui-media-box__desc" v-else>
+                                        <span class="good-info-title">折扣价</span>: ¥{{ good.new_price }}
+                                    </p>
+                                    <p class="weui-media-box__desc">
+                                        <span class="good-info-title">数量</span>: {{ good.amount }}
+                                    </p>
                                 </div>
                             </a>
                         </div>
@@ -152,7 +166,7 @@
                             <label class="weui-label">省市区</label>
                         </div>
                         <div class="weui-cell__bd">
-                            <input class="weui-input" type="tel" disabled :value="pca" />
+                            <input class="weui-input" type="text" disabled :value="pca" />
                         </div>
                         <div class="weui-cell__ft">
                             <button class="weui-vcode-btn" v-on:click="toggleDistpickerStatus">点我选择</button>
@@ -165,7 +179,7 @@
                         <div class="weui-cell__bd">
                             <input
                                 class="weui-input"
-                                type="tel"
+                                type="text"
                                 placeholder="请输入详细地址"
                                 v-model="addressesManagement.addresses[0].detial">
                         </div>
@@ -177,7 +191,7 @@
                         <div class="weui-cell__bd">
                             <input
                                 class="weui-input"
-                                type="tel"
+                                type="text"
                                 placeholder="请输入您的姓名"
                                 v-model="addressesManagement.addresses[0].name">
                         </div>
@@ -234,6 +248,15 @@
             .payment-success {
                 margin-top: 100px;
                 text-align: center;
+            }
+
+            .good-info-title {
+                display: inline-block;
+                width: 42px;
+            }
+
+            .line-through {
+                text-decoration: line-through;
             }
         </style>
 
@@ -307,7 +330,7 @@
                         var totalAmount = 0
                         for (var i = 0; i < goods.length; i += 1) {
                             var good = goods[i]
-                            totalAmount += parseFloat(good.unitPrice) * 100 * good.amount
+                            totalAmount += parseFloat(good.new_price || good.price) * 100 * good.amount
                         }
                         totalAmount = totalAmount.toString()
                         return totalAmount.substr(0, totalAmount.length - 2) + '.' + totalAmount.substr(totalAmount.length - 2)
@@ -337,11 +360,12 @@
                         var address = this.addressesManagement.addresses[0]
                         return address.province + ' ' + address.city + ' ' + address.area
                     }
+                },
+
+                mounted () {
+                    document.getElementById('app').style.display = 'block'
                 }
             })
         </script>
     </body>
 </html>
-
-
-

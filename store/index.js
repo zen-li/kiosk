@@ -45,7 +45,7 @@ const createStore = () => {
                 return `${ total.substr(0, total.length - 2) }.${ total.substr(total.length - 2) }`
             },
             getCheckoutQr: (state) => {
-                let qr = 'http://foo/index.html?g='
+                let qr = 'https://kiosk.qikan.net/payment/index.html?g='
                 state.cartList.forEach((item) => {
                     qr += `${ item.id },${ item.qty };`
                 })

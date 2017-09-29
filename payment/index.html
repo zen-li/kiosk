@@ -318,12 +318,6 @@
                     }
                 },
 
-                watch: {
-                    'addressesManagement.addresses[0].detial': function (newval, oldval) {
-                        console.log(newval, oldval)
-                    }
-                },
-
                 computed: {
                     totalAmount: function () {
                         var goods = this.shoppingCart.goods
@@ -332,7 +326,7 @@
                             var good = goods[i]
                             totalAmount += parseFloat(good.new_price || good.price) * 100 * good.amount
                         }
-                        totalAmount = totalAmount.toString()
+                        totalAmount = parseInt(totalAmount).toString()
                         return totalAmount.substr(0, totalAmount.length - 2) + '.' + totalAmount.substr(totalAmount.length - 2)
                     },
 

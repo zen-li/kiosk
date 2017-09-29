@@ -1,13 +1,13 @@
 <template>
     <v-container grid-list-xs class="home-container">
-        <v-parallax class="elevation-3" src="/images/blue-grey-pentagonal-background.png">
-        <!-- BEGIN of large promotion banner -->
+        <!-- <v-parallax class="elevation-3" src="/images/blue-grey-pentagonal-background.png">
             <v-layout row wrap class="pt-1">
                 <v-flex xs12>
 
                 </v-flex>
             </v-layout>
-        </v-parallax>
+        </v-parallax> -->
+        <div><img src="/images/b_index.jpg" alt="" class="elevation-1"></div>
         <!-- BEGIN of promotion area -->
         <v-layout row wrap class="my-4 ml-5">
             <v-flex xs3 v-for="item in promos" v-bind:key="item.id">

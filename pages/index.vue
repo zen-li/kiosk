@@ -203,28 +203,28 @@ export default {
                     type: 'promo_book',
                     name: '9折精品精装图书',
                     banner_s: '',
-                    banner_l: 'promo001.jpg'
+                    banner_l: 's1.jpg'
                 },
                 {
                     id: 'promo002',
                     type: 'promo_magazine',
                     name: '精品杂志1元购',
                     banner_s: '',
-                    banner_l: 'promo002.jpg'
+                    banner_l: 's2.jpg'
                 },
                 {
                     id: 'promo003',
                     type: 'promo_merch',
                     name: '精品Moleskine笔记本',
                     banner_s: '',
-                    banner_l: 'promo003.jpg'
+                    banner_l: 's3.jpg'
                 },
                 {
                     id: 'promo004',
                     type: 'promo_merch',
                     name: '德国灯塔笔记本专区',
                     banner_s: '',
-                    banner_l: 'promo004.jpg'
+                    banner_l: 's4.jpg'
                 }
             ],
             mags: [
@@ -332,7 +332,7 @@ export default {
     height: 100%;
 }
 .swiper-box {
-    background: url('~static/images/banner_book.jpg') no-repeat;
+    background: url('~static/images/b_background.jpg') no-repeat;
     height: 320px;
 }
 .swiper-slide {

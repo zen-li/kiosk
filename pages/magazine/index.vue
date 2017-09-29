@@ -1,11 +1,12 @@
 <template>
     <v-container grid-list-xs class="home-container">
         <!-- BEGIN of magazine banners -->
-        <v-parallax class="elevation-3" src="/images/blue-grey-pentagonal-background.png">
+        <!-- <v-parallax class="elevation-3" src="/images/blue-grey-pentagonal-background.png">
             <v-layout row wrap class="mt-0">
                 <v-flex xs12>
                 </v-flex>
-            </v-layout>
+            </v-layout> -->
+            <div><img src="/images/b_qikan.jpg" alt="" class="elevation-1" style="width: 1900px"></div>
         </v-parallax>
         <!-- END of magazine banners -->
 

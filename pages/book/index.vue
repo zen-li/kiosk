@@ -1,12 +1,13 @@
 <template>
     <v-container grid-list-md class="home-container">
         <!-- BEGIN of book banners -->
-        <v-parallax class="elevation-3" src="/images/blue-grey-pentagonal-background.png">
+        <!-- <v-parallax class="elevation-3" src="/images/blue-grey-pentagonal-background.png">
             <v-layout row wrap class="mt-0">
                 <v-flex xs12>
                 </v-flex>
             </v-layout>
-        </v-parallax>
+        </v-parallax> -->
+        <div><img src="/images/book_banner.jpg" alt="" class="elevation-1"></div>
         <!-- END of book banners -->
 
         <!-- BEGIN of main content -->

@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
         <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
         <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+        <script src="https://cdn.bootcss.com/decimal.js/7.3.0/decimal.min.js"></script>
         <script src="weui-distpicker.js"></script>
         <script>
             Vue.component('weui-distpicker', WeuiDistpicker.default)
@@ -324,10 +325,10 @@
                         var totalAmount = 0
                         for (var i = 0; i < goods.length; i += 1) {
                             var good = goods[i]
-                            totalAmount += parseFloat(good.new_price || good.price) * 100 * good.amount
+                            var a = new Decimal(good.new_price || good.price).mul(good.amount).toNumber()
+                            totalAmount = new Decimal(totalAmount).add(a).toNumber()
                         }
-                        totalAmount = parseInt(totalAmount).toString()
-                        return totalAmount.substr(0, totalAmount.length - 2) + '.' + totalAmount.substr(totalAmount.length - 2)
+                        return totalAmount
                     },
 
                     fullAddress: function () {

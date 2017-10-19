@@ -27,13 +27,13 @@
                         </div>
                     </v-flex>
                     <v-flex d-flex>
-                        <h4 class="red--text mt-4">折扣价：￥{{merch.new_price}}</h4>
+                        <h4 class="red--text mt-4">折扣价：￥{{Number(merch.new_price).toFixed(2)}}</h4>
                     </v-flex>
-                    <v-layout>
+                    <!-- <v-layout>
                         <v-flex xs6>
-                            <v-btn @click="addCart" block large dark class="pink">加入购物车</v-btn>
+                            <v-btn @click.native.stop="addCart" block large dark class="pink">加入购物车</v-btn>
                         </v-flex>
-                    </v-layout>
+                    </v-layout> -->
                 </v-flex>
             </v-layout>
             <v-divider class="my-4"></v-divider>
@@ -50,16 +50,18 @@
 export default {
     props: ['merch'],
     methods: {
-        addCart () {
-            const cartItem = {
-                id: this.merch.id,
-                picture: this.merch.cover,
-                title: this.merch.name,
-                qty: 1,
-                price: this.merch.new_price
-            }
-            this.$store.commit('addCart', cartItem)
-        }
+        // addCart () {
+        //     const cartItem = {
+        //         id: this.merch.id,
+        //         picture: this.merch.cover,
+        //         title: this.merch.name,
+        //         qty: 1,
+        //         price: this.merch.new_price
+        //     }
+        //     this.$store.commit('addCart', cartItem)
+        //     this.$store.state.dlgCartOpen = true
+        //     this.$store.state.dlgPaymentOpen = false
+        // }
     },
     data () {
         return {

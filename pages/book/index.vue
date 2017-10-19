@@ -25,6 +25,13 @@
                                 <span class="paragraph-end">
                                 </span>
                             </div>
+                            <div class="card-subtitle mt-2" style="width: 210px; color: #f44336">
+                                <span>
+                                    促销价：￥{{Number(item.new_price).toFixed(2)}}元
+                                </span>
+                                <span class="paragraph-end">
+                                </span>
+                            </div>
                         </v-card-text>
                     </v-card>
                 </nuxt-link>

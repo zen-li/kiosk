@@ -10,11 +10,10 @@
             <!-- END of Back button -->
 
             <!-- BEGIN of magazine section and comments section -->
-            <v-flex xs5>
+            <v-flex xs7>
                 <!-- BEGIN of magazine information -->
                 <v-flex d-flex>
                     <v-layout>
-
                         <!-- BEGIN of magazine cover -->
                         <v-flex xs5>
                             <v-card class="darken-2 promobox elevation-5 mt-2">
@@ -28,8 +27,8 @@
                         <v-flex d-flex xs6 class="mt-3">
                             <!-- BEGIN of magazine information -->
                             <v-flex class="headline"><strong>{{merch.name}}</strong></v-flex>
-                            <v-flex class="grey--text darken-5 mt-4">{{merch.summary}}</v-flex>
-                            <v-flex class="mt-3"><h5 class="red--text">折扣价：￥{{merch.new_price}}</h5></v-flex>
+                            <v-flex class="grey--text darken-5 mt-4 summaryBox">{{merch.summary}}</v-flex>
+                            <v-flex class="mt-3"><h5 class="red--text">折扣价：￥{{Number(merch.new_price).toFixed(2)}}</h5></v-flex>
                             <!-- END of magazine information -->
 
                             <!-- BEGIN of action buttons -->
@@ -41,7 +40,7 @@
                                     </v-dialog>
                                 </v-flex>
                                 <v-flex d-flex xs12>
-                                    <v-btn block large dark class="pink">加入购物车</v-btn>
+                                    <v-btn block large dark class="pink" @click.native.stop="addCart">加入购物车</v-btn>
                                 </v-flex>
                             </v-layout>
                             <!-- END of action buttons -->
@@ -51,7 +50,34 @@
                     </v-layout>
                 </v-flex>
                 <!-- END of magazine information -->
-
+                <!-- <v-divider class="my-3"></v-divider>
+                <v-layout class="mr-5">
+                    <v-flex xs12>
+                        <img :src="pic" alt="" v-for="pic in merch.pics" v-bind:key="pic">
+                    </v-flex>
+                </v-layout> -->
+                <!-- BEGIN of comments section -->
+                <v-flex d-flex class="mt-4">
+                    <h5>商品评论</h5>
+                </v-flex>
+                <!-- BEGIN of comments -->
+                <v-flex d-flex>
+                    <v-list three-line style="background: #eeeeee">
+                        <template v-for="item in comments">
+                            <v-subheader v-if="item.header" v-text="item.header" v-bind:key="item.title"></v-subheader>
+                            <v-list-tile avatar v-else v-bind:key="item.title">
+                                <v-list-tile-avatar>
+                                    <img v-bind:src="item.avatar" alt="">
+                                </v-list-tile-avatar>
+                                <v-list-tile-content>
+                                    <v-list-tile-title v-html="item.title"></v-list-tile-title>
+                                    <v-list-tile-sub-title v-html="item.subtitle"></v-list-tile-sub-title>
+                                </v-list-tile-content>
+                            </v-list-tile>
+                        </template>
+                    </v-list>
+                </v-flex>
+                <!-- END of comments section -->
             </v-flex>
             <!-- END of magazine section -->
 
@@ -79,30 +105,7 @@
                         </v-flex>
                     </v-layout>
                 </v-flex>
-                <!-- END of related magazines -->
-                 <!-- BEGIN of comments section -->
-                <v-flex d-flex class="mt-4">
-                    <h5>商品评论</h5>
-                </v-flex>
-                <!-- BEGIN of comments -->
-                <v-flex d-flex>
-                    <v-list three-line>
-                        <template v-for="item in comments">
-                            <v-subheader v-if="item.header" v-text="item.header" v-bind:key="item.title"></v-subheader>
-                            <v-list-tile avatar v-else v-bind:key="item.title">
-                                <v-list-tile-avatar>
-                                    <img v-bind:src="item.avatar" alt="">
-                                </v-list-tile-avatar>
-                                <v-list-tile-content>
-                                    <v-list-tile-title v-html="item.title"></v-list-tile-title>
-                                    <v-list-tile-sub-title v-html="item.subtitle"></v-list-tile-sub-title>
-                                </v-list-tile-content>
-                            </v-list-tile>
-                            <v-divider v-bind:inset="item.inset" v-bind:key="item.title"></v-divider>
-                        </template>
-                    </v-list>
-                </v-flex>
-                <!-- END of comments section -->
+                <!-- END of related merchandise -->
             </v-flex>
             <!-- END of magazine history -->
         </v-layout>
@@ -143,15 +146,29 @@ export default {
 
     methods: {
         goBack () {
-            this.$router.go(-1)
+            this.$router.replace('/merchandise')
         },
         closeDlg () {
             this.dialog = false
+        },
+        addCart () {
+            const cartItem = {
+                id: this.merch.id,
+                picture: this.merch.cover,
+                title: this.merch.name,
+                qty: 1,
+                price: this.merch.new_price
+            }
+            this.$store.commit('addCart', cartItem)
+            this.$store.state.dlgCartOpen = true
+            this.$store.state.dlgPaymentOpen = false
         }
     }
 }
 </script>
 
 <style>
-
+.summaryBox {
+    height: 180px;
+}
 </style>

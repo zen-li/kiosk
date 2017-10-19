@@ -30,12 +30,13 @@
                         </h5>
                     </v-flex>
                     <v-flex xs1>
-                        <v-btn flat class="mb-2 red--text text--darken-2">查看更多</v-btn>
+                        <v-btn flat class="mb-2 red--text text--darken-2" to="/magazine">查看更多</v-btn>
                     </v-flex>
                 </v-layout>
                 <!-- BEGIN of magazine cover list -->
                 <v-layout row class="ml-2">
                     <v-flex xs4 v-for="item in recommendMags" v-bind:key="item.id">
+                        <nuxt-link :to="`/magazine/${item.id}`">
                         <v-card class="mr-5 card-cover" raised>
                             <v-card-media :src="item.cover" height="220px"></v-card-media>
                             <v-card-text>
@@ -55,6 +56,7 @@
                                 </div>
                             </v-card-text>
                         </v-card>
+                        </nuxt-link>
                     </v-flex>
                 </v-layout>
                 <!-- END of magazine cover list -->
@@ -69,11 +71,8 @@
                     <v-flex xs11>
                         <h5>
                             <v-icon class="red--text text--darken-2 mr-2" medium>photo_album</v-icon>
-                            <strong>精品中信图书</strong>
+                            <strong>中信起点图书系列</strong>
                         </h5>
-                    </v-flex>
-                    <v-flex xs1>
-                        <v-btn flat class="mb-2 red--text text--darken-2">查看更多</v-btn>
                     </v-flex>
                 </v-layout>
                 <!-- BEGIN of banner swiper -->
@@ -82,6 +81,7 @@
                         <div v-swiper:mySwiper="swiperOption" class="swiper-box swiper-container swiper-container-horizontal elevation-3">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide" v-for="item in bannerBooks" v-bind:key="item.id">
+                                    <nuxt-link :to="`/book/${item.id}`">
                                     <v-card class="mr-5 card-cover" raised>
                                         <v-card-media :src="item.cover" height="220px"></v-card-media>
                                         <v-card-text>
@@ -91,6 +91,7 @@
                                             </div>
                                         </v-card-text>
                                     </v-card>
+                                    </nuxt-link>
                                 </div>
                             </div>
                         </div>
@@ -112,12 +113,13 @@
                         </h5>
                     </v-flex>
                     <v-flex xs1>
-                        <v-btn flat class="mb-2 red--text text--darken-2">查看更多</v-btn>
+                        <v-btn flat class="mb-2 red--text text--darken-2" to="/book">查看更多</v-btn>
                     </v-flex>
                 </v-layout>
                 <!-- BEGIN of book cover list -->
                 <v-layout row class="ml-2">
                     <v-flex xs4 v-for="item in recommendBooks" v-bind:key="item.id">
+                        <nuxt-link :to="`/book/${item.id}`">
                         <v-card class="mr-5 card-cover" raised>
                             <v-card-media :src="item.cover" height="220px"></v-card-media>
                             <v-card-text>
@@ -130,6 +132,7 @@
                                 </div>
                             </v-card-text>
                         </v-card>
+                        </nuxt-link>
                     </v-flex>
                 </v-layout>
                 <!-- END of book cover list -->

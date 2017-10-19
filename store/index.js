@@ -11,7 +11,9 @@ function updateSubtotal (qty, price) {
 const createStore = () => {
     return new Vuex.Store({
         state: {
-            cartList: []
+            cartList: [],
+            dlgCartOpen: false,
+            dlgPaymentOpen: false
         },
         mutations: {
             addCart (state, item) {
@@ -20,13 +22,12 @@ const createStore = () => {
                 if (result === undefined) {
                     item.subTotal = item.price
                     state.cartList.push(item)
-                } else {
-                    result.qty += 1
-                    result.subTotal = updateSubtotal(result.qty, result.price)
                 }
             },
             clearCart (state) {
                 state.cartList = []
+                state.dlgCartOpen = false
+                state.dlgPaymentOpen = false
             },
             updateQty (state, item) {
                 const cartItem = state.cartList.find((foo) => { return foo.id === item.id })

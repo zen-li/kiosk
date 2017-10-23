@@ -7,7 +7,7 @@
                 </v-flex>
             </v-layout>
         </v-parallax> -->
-        <div><img src="/images/b_index.jpg" alt="" class="elevation-1"></div>
+        <div><img src="http://oy1y8tim8.bkt.clouddn.com/indextoplittle@1.png" alt="" class="elevation-1"></div>
         <!-- BEGIN of promotion area -->
         <v-layout row wrap class="my-4 ml-5">
             <v-flex xs3 v-for="item in promos" v-bind:key="item.id">
@@ -71,7 +71,7 @@
                     <v-flex xs11>
                         <h5>
                             <v-icon class="red--text text--darken-2 mr-2" medium>photo_album</v-icon>
-                            <strong>中信起点图书系列</strong>
+                            <strong>中信奇点图书系列</strong>
                         </h5>
                     </v-flex>
                 </v-layout>
@@ -185,7 +185,7 @@ export default {
             return db.books.slice(0, 8)
         },
         bannerBooks () {
-            const ads = db.book_hero_ads.items
+            const ads = db.bookpromo.items
             const books = []
 
             ads.forEach((id) => {
@@ -335,7 +335,7 @@ export default {
     height: 100%;
 }
 .swiper-box {
-    background: url('~static/images/b_background.jpg') no-repeat;
+    background: url('http://oy1y8tim8.bkt.clouddn.com/indexqidian@1.png') no-repeat;
     height: 320px;
 }
 .swiper-slide {

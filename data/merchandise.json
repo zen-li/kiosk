@@ -1,0 +1,79 @@
+[
+    {
+        "id": "m101",
+        "name": "Moleskine限量版大眼萌小黄人蓝色硬面横间笔记本",
+        "price": 208.00,
+        "new_price": 199.99,
+        "summary": "由经典电影《超级奶爸》又名《卑鄙的我》（英文名Despicable Me）制作方美国环球影视Universal Studio官方授权，大眼萌小黄人系列限量版主题笔记本。始终走在追寻头号大坏蛋之旅的小黄人将会拥有怎样的鬼马奇思？打开Moleskine你就会发现。",
+        "cover": "https://images-cn.ssl-images-amazon.com/images/I/71ReETbqOfL._SL1500_.jpg",
+        "pics": [
+            "/images/m_0_1.jpg",
+            "/images/m_0_2.jpg",
+            "/images/m_0_3.jpg",
+            "/images/m_0_4.jpg",
+            "/images/m_0_5.jpg",
+            "/images/m_0_6.jpg",
+            "/images/m_0_7.jpg"
+        ]
+    },
+    {
+        "id": "m102",
+        "name": "Moleskine笔记本商务办公黑色纯白软面记事本加大型",
+        "price": 243.00,
+        "new_price": 199.99,
+        "summary": "传承自文艺复兴时vintage的文化精髓。油性布封面无酸纸张都散发着那个时代独特又浓郁的怀旧气味，保存着永久不变的传世名作。而圆角书页，橡筋箍环，丝带书签亦倾诉着那个优雅岁月中累积的阅读习惯，表达出简约实用的内在精神。在时光的打磨中，这些成为了Moleskine标志性设计，也成为每一位Moleskine书写者们的专属印记。",
+        "cover": "https://images-cn.ssl-images-amazon.com/images/I/31idtg6AN-L.jpg",
+        "pics": [
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_1_0.jpg",
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_1_1.jpg"
+        ]
+    },
+    {
+        "id": "m103",
+        "name": "Moleskine 经典胶杆宝珠笔Plus 0.7mm",
+        "price": 187.00,
+        "new_price": 99.00,
+        "summary": "延续Moleskine的简约优雅风格，以笔记本的矩形为原型，设计出别具特色的经典方形笔身。采用专为Moleskine纸张而设计的墨水，并附上笔架，让笔简洁地夹在笔记本封面，成为笔记本的伴侣，无论何时都能轻松携带。",
+        "cover": "http://ov0u4w5y1.bkt.clouddn.com/mo_2_0.jpg",
+        "pics": [
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_2_0.jpg",
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_2_1.jpg"
+        ]
+    },
+    {
+        "id": "m104",
+        "name": "Moleskine Toolbelt笔记本工具袋（口袋型）",
+        "price": 248.00,
+        "new_price": 199.99,
+        "summary": "传承自文艺复兴时vintage的文化精髓。油性布封面无酸纸张都散发着那个时代独特又浓郁的怀旧气味，保存着永久不变的传世名作。而圆角书页，橡筋箍环，丝带书签亦倾诉着那个优雅岁月中累积的阅读习惯，表达出简约实用的内在精神。在时光的打磨中，这些成为了Moleskine标志性设计，也成为每一位Moleskine书写者们的专属印记。",
+        "cover": "http://ov0u4w5y1.bkt.clouddn.com/mo_3_0.jpg",
+        "pics": [
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_3_0.jpg",
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_3_1.jpg"
+        ]
+    },
+    {
+        "id": "m105",
+        "name": "LEUCHTTURM1917灯塔德国口袋型A6经典无格笔记本红色硬封皮",
+        "price": 129.00,
+        "new_price": 99.00,
+        "summary": "Leuchtturm1917, 德国公司，成立于1917年，拥有超过90年的生产高品质文具的历史。Leuchtturm1917纸制品以其精湛的纸品制作工艺，严格的品质要求，使其在欧洲文具纸品界享有非凡的名声，其中Leuchtturm1917绑带型写字本，更是在欧洲奢侈级别的写字本中占据高地。",
+        "cover": "http://ov0u4w5y1.bkt.clouddn.com/mo_4_0.jpg",
+        "pics": [
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_4_0.jpg",
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_4_1.jpg"
+        ]
+    },
+    {
+        "id": "m106",
+        "name": "LEUCHTTURM1917灯塔德国中开A5双色笔记本烟灰色加浅蓝色绷带硬封皮",
+        "price": 227.00,
+        "new_price": 99.00,
+        "summary": "Leuchtturm1917, 德国公司，成立于1917年，拥有超过90年的生产高品质文具的历史。Leuchtturm1917纸制品以其精湛的纸品制作工艺，严格的品质要求，使其在欧洲文具纸品界享有非凡的名声，其中Leuchtturm1917绑带型写字本，更是在欧洲奢侈级别的写字本中占据高地。",
+        "cover": "http://ov0u4w5y1.bkt.clouddn.com/mo_5_0.jpg",
+        "pics": [
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_5_0.jpg",
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_5_1.jpg"
+        ]
+    }
+]

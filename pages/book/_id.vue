@@ -93,7 +93,7 @@
                     <v-layout row wrap>
                         <v-flex xs3 v-for="item in related" v-bind:key="item.id">
                             <nuxt-link :to="`/book/${item.id}`">
-                            <v-card class="darken=2 promobox elevation-5 mt-3 mb-4">
+                            <v-card class="darken-2 promobox elevation-5 mt-3 mb-4">
                                 <v-card-media class="white--text" :src="item.cover" height="220px"></v-card-media>
                                 <v-card-text>
                                     <div class="card-title">

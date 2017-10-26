@@ -10,7 +10,7 @@
             <!-- END of Back button -->
 
             <!-- BEGIN of magazine section and comments section -->
-            <v-flex xs7>
+            <v-flex xs5>
                 <!-- BEGIN of magazine information -->
                 <v-flex d-flex>
                     <v-layout>
@@ -88,9 +88,10 @@
                 </v-flex>
                 <!-- BEGIN of related magazines -->
                 <v-flex d-flex>
-                    <v-layout>
+                    <v-layout row wrap>
                         <v-flex xs3 v-for="item in related" v-bind:key="item.id">
-                            <v-card class="darken=2 promobox elevation-5 mt-1">
+                            <nuxt-link :to="`/merchandise/${item.id}`">
+                            <v-card class="darken-2 promobox elevation-5 mt-1 mb-4">
                                 <v-card-media class="white--text" :src="item.cover" height="220px"></v-card-media>
                                 <v-card-text>
                                     <div class="card-title">
@@ -102,6 +103,7 @@
                                     </div>
                                 </v-card-text>
                             </v-card>
+                            </nuxt-link>
                         </v-flex>
                     </v-layout>
                 </v-flex>
@@ -123,7 +125,7 @@ export default {
             const merch = db.merchandises.find((m) => { return m.id === params.id })
             const comments = db.comments
             const related = []
-            for (let i = 0; i < 4; i += 1) {
+            for (let i = 0; i < 8; i += 1) {
                 related.push(db.merchandises[i])
             }
             data = { merch, related, comments }
@@ -146,7 +148,7 @@ export default {
 
     methods: {
         goBack () {
-            this.$router.replace('/merchandise')
+            this.$router.go(-1)
         },
         closeDlg () {
             this.dialog = false

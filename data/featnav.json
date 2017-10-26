@@ -1,0 +1,22 @@
+[
+    {
+        "id": "feat01",
+        "link": "/book/bk114",
+        "img": "http://oy1y8tim8.bkt.clouddn.com/indexbook1@2.png"
+    },
+    {
+        "id": "feat02",
+        "link": "/book/bk102",
+        "img": "http://oy1y8tim8.bkt.clouddn.com/indexbook2@2.png"
+    },
+    {
+        "id": "feat03",
+        "link": "/shengxian",
+        "img": "http://oy1y8tim8.bkt.clouddn.com/indexfoods@2.png"
+    },
+    {
+        "id": "feat04",
+        "link": "/tuangou",
+        "img": "http://oy1y8tim8.bkt.clouddn.com/indexshop@2.png"
+    }
+]

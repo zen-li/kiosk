@@ -1,5 +1,55 @@
 [
     {
+        "id": "m107",
+        "name": "Moleskine上海滩限量十二生肖硬面笔记本文具横间大型",
+        "price": 350.00,
+        "new_price": 199.00,
+        "summary": "风行世界的中国时尚品牌上海滩与Moleskine再度联手合作，聚焦中国元素，突破性地推出十二生肖系列笔记以及鸡年运程周记本。此系列灵感来源于中国悠远深厚的生肖文化，以笔记本的创作方式体现生肖的壮观其实，民间传说和蕴含千年的智慧。",
+        "cover": "http://ov0u4w5y1.bkt.clouddn.com/mo_6_0.jpg",
+        "pics": [
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_6_1.jpg",
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_6_2.jpg",
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_6_3.jpg"
+        ]
+    },
+    {
+        "id": "m108",
+        "name": "Moleskine星球大战侠盗一号限量版2017年18个月周记笔记本",
+        "price": 280.00,
+        "new_price": 139.00,
+        "summary": "为纪念星球大战新作《星球大战外传：侠盗一号》，Moleskine获得由『星战之父』乔治·卢卡斯一手创办的卢卡斯影业官方授权，以代号『星尘』的死星设计图为灵感，创作出限量版18个月日程表。开启粉碎死星的星战新航程",
+        "cover": "http://ov0u4w5y1.bkt.clouddn.com/mo_7_0.jpg",
+        "pics": [
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_7_1.jpg",
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_7_3.jpg",
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_7_0.jpg"
+        ]
+    },
+    {
+        "id": "m109",
+        "name": "Moleskine经典新色彩商务创意硬面抄内页横间/方格/纯白笔记本大型/口袋型笔记本记事本日记本手账",
+        "price": 145.00,
+        "new_price": 99.00,
+        "summary": "传承自百年经典设计的Moleskine经典笔记本New collection，大胆启用明亮色调，为您的笔记注入与众不同的活力与灵感。而不变的圆形书角，和弹性箍环等经典细节，延续着恒久不变的独到品位，书写由此更加出彩别致。",
+        "cover": "http://ov0u4w5y1.bkt.clouddn.com/mo_8_0.jpg",
+        "pics": [
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_8_1.jpg",
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_8_2.jpg"
+        ]
+    },
+    {
+        "id": "m110",
+        "name": "Moleskine Blend Collection限量版 横间笔记记事本大型手帐",
+        "price": 238.00,
+        "new_price": 149.00,
+        "summary": "源自色彩的混合，乍看分明的主色调，在近看后你会发现，它是由多种色调组成的混合体。该系列笔记本以重点色的方式呈现各色丝带书签和弹性箍环来突出色彩。提花的布面丰富多彩，编制繁复，并且拥有结实弹性的优点。而要做到这些品质，必须要靠手工组装。这一系列是Moleskine将精工细作的匠人技艺融入创作的辛勤结晶。",
+        "cover": "http://ov0u4w5y1.bkt.clouddn.com/mo_9_0.jpg",
+        "pics": [
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_9_1.jpg",
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_9_2.jpg"
+        ]
+    },
+    {
         "id": "m101",
         "name": "Moleskine限量版大眼萌小黄人蓝色硬面横间笔记本",
         "price": 208.00,
@@ -22,7 +72,7 @@
         "price": 243.00,
         "new_price": 199.99,
         "summary": "传承自文艺复兴时vintage的文化精髓。油性布封面无酸纸张都散发着那个时代独特又浓郁的怀旧气味，保存着永久不变的传世名作。而圆角书页，橡筋箍环，丝带书签亦倾诉着那个优雅岁月中累积的阅读习惯，表达出简约实用的内在精神。在时光的打磨中，这些成为了Moleskine标志性设计，也成为每一位Moleskine书写者们的专属印记。",
-        "cover": "https://images-cn.ssl-images-amazon.com/images/I/31idtg6AN-L.jpg",
+        "cover": "http://ov0u4w5y1.bkt.clouddn.com/mo_1_0.jpg",
         "pics": [
             "http://ov0u4w5y1.bkt.clouddn.com/mo_1_0.jpg",
             "http://ov0u4w5y1.bkt.clouddn.com/mo_1_1.jpg"
@@ -74,6 +124,31 @@
         "pics": [
             "http://ov0u4w5y1.bkt.clouddn.com/mo_5_0.jpg",
             "http://ov0u4w5y1.bkt.clouddn.com/mo_5_1.jpg"
+        ]
+    },
+    {
+        "id": "m111",
+        "name": "LEUCHTTURM1917灯塔德国口袋型A6经典横格笔记本玫红色硬封皮",
+        "price": 147.00,
+        "new_price": 69.00,
+        "summary": "Leuchtturm1917, 德国公司，成立于1917年，拥有超过90年的生产高品质文具的历史。Leuchtturm1917纸制品以其精湛的纸品制作工艺，严格的品质要求，使其在欧洲文具纸品界享有非凡的名声，其中Leuchtturm1917绑带型写字本，更是在欧洲奢侈级别的写字本中占据高地。",
+        "cover": "http://ov0u4w5y1.bkt.clouddn.com/mo_10_0.jpg",
+        "pics": [
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_10_1.jpg",
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_10_2.jpg",
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_10_3.jpg"
+        ]
+    },
+    {
+        "id": "m112",
+        "name": "LEUCHTTURM1917灯塔德国口袋型A6经典横格笔记本紫色硬封皮",
+        "price": 147.00,
+        "new_price": 69.00,
+        "summary": "Leuchtturm1917, 德国公司，成立于1917年，拥有超过90年的生产高品质文具的历史。Leuchtturm1917纸制品以其精湛的纸品制作工艺，严格的品质要求，使其在欧洲文具纸品界享有非凡的名声，其中Leuchtturm1917绑带型写字本，更是在欧洲奢侈级别的写字本中占据高地。",
+        "cover": "http://ov0u4w5y1.bkt.clouddn.com/mo_11_0.jpg",
+        "pics": [
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_11_1.jpg",
+            "http://ov0u4w5y1.bkt.clouddn.com/mo_11_2.jpg"
         ]
     }
 ]

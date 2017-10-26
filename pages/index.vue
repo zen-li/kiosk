@@ -7,14 +7,16 @@
                 </v-flex>
             </v-layout>
         </v-parallax> -->
-        <div><img src="http://oy1y8tim8.bkt.clouddn.com/indextoplittle@1.png" alt="" class="elevation-1"></div>
+        <div><img src="http://oy1y8tim8.bkt.clouddn.com/indextop@1.png" alt="" class="elevation-1"></div>
         <!-- BEGIN of promotion area -->
         <v-layout row wrap class="my-4 ml-5">
-            <v-flex xs3 v-for="item in promos" v-bind:key="item.id">
+            <v-flex xs3 v-for="item in featNav" v-bind:key="item.id">
+                <nuxt-link :to="item.link">
                 <v-card class="darken-2 white--text promobox elevation-2">
-                    <v-card-media class="white--text" :src="`/images/${item.banner_l}`" height="110px">
+                    <v-card-media class="white--text" :src="item.img" height="110px">
                     </v-card-media>
                 </v-card>
+                </nuxt-link>
             </v-flex>
         </v-layout>
         <!-- END of promoition area -->
@@ -146,20 +148,21 @@
                     <v-flex xs11>
                         <h5>
                             <v-icon class="red--text text--darken-2 mr-2" medium>photo_album</v-icon>
-                            <strong>优选商品</strong>
+                            <strong>Moleskine精品笔记本系列</strong>
                         </h5>
                     </v-flex>
                     <v-flex xs1>
                         <v-btn flat class="mb-2 red--text text--darken-2">查看更多</v-btn>
                     </v-flex>
                 </v-layout>
-                <!-- BEGIN of banner swiper -->
-                <v-layout row wrap class="my-4 ml-2">
-                    <v-flex xs6 v-for="item in promos" v-bind:key="item.id">
+                <v-layout row wrap class="mb-4 ml-2">
+                    <v-flex xs6 v-for="item in featMerch" v-bind:key="item.id">
+                        <nuxt-link :to="`/merchandise/${item.m_id}`">
                         <v-card class="darken-2 white--text promobox elevation-2 mb-5">
-                            <v-card-media class="white--text" :src="`/images/${item.banner_l}`" height="310px">
+                            <v-card-media class="white--text" :src="item.img" height="310px">
                             </v-card-media>
                         </v-card>
+                        </nuxt-link>
                     </v-flex>
                 </v-layout>
                 <!-- END OF banner swiper -->
@@ -195,105 +198,17 @@ export default {
                 books.push(book)
             })
             return books
+        },
+        featNav () {
+            return db.featnav
+        },
+        featMerch () {
+            return db.featmerch
         }
     },
 
     data () {
         return {
-            promos: [
-                {
-                    id: 'promo001',
-                    type: 'promo_book',
-                    name: '9折精品精装图书',
-                    banner_s: '',
-                    banner_l: 's1.jpg'
-                },
-                {
-                    id: 'promo002',
-                    type: 'promo_magazine',
-                    name: '精品杂志1元购',
-                    banner_s: '',
-                    banner_l: 's2.jpg'
-                },
-                {
-                    id: 'promo003',
-                    type: 'promo_merch',
-                    name: '精品Moleskine笔记本',
-                    banner_s: '',
-                    banner_l: 's3.jpg'
-                },
-                {
-                    id: 'promo004',
-                    type: 'promo_merch',
-                    name: '德国灯塔笔记本专区',
-                    banner_s: '',
-                    banner_l: 's4.jpg'
-                }
-            ],
-            mags: [
-                {
-                    guid: 'AD6FC478-80E2-4E63-99E4-02BE894398EA',
-                    name: '三联生活周刊',
-                    year: 2017,
-                    issue: 33,
-                    codename: 'slzk',
-                    cover: 'http://img1.qikan.com/qkimages/slzk/slzk201733-z.jpg',
-                    price: 5,
-                    discountPrice: 1
-                },
-                {
-                    guid: 'EA265B17-0D79-4240-B3DB-0B4CF94DE08B',
-                    name: '读者',
-                    year: 2017,
-                    issue: 17,
-                    codename: 'duzh',
-                    cover: 'http://img1.qikan.com/qkimages/duzh/duzh201717-z.jpg',
-                    price: 5,
-                    discountPrice: 1
-                },
-                {
-                    guid: '540A92C2-8E11-45C5-BC66-0FE9C9EE4D3C',
-                    name: '第一财经周刊',
-                    year: 2017,
-                    issue: 31,
-                    codename: 'dycj',
-                    cover: 'http://img1.qikan.com/qkimages/dycj/dycj201731-z.jpg',
-                    price: 5,
-                    discountPrice: 1
-                },
-                {
-                    guid: '19FEB0F6-93A1-45E9-8542-8514FBCBDEC0',
-                    name: '南都娱乐周刊',
-                    year: 2017,
-                    issue: 15,
-                    codename: 'ndyl',
-                    cover: 'http://img1.qikan.com/qkimages/ndyl/ndyl201715-z.jpg',
-                    price: 5,
-                    discountPrice: 1
-                }
-            ],
-            books: [
-                {
-                    guid: '0197adbe-cf31-47e9-aff5-4f3b5a039f11',
-                    name: '重新定义公司：谷歌是如何运营的',
-                    cover: 'http://ebook.qikan.com/bookpicture/ds030551.jpg'
-                },
-                {
-                    guid: 'edf516a4-0a20-42a5-bf1a-d2f6a8a219e6',
-                    name: '未来简史（完整图文版）',
-                    cover: 'http://ebook.qikan.com/bookpicture/ds030554.jpg'
-                },
-                {
-                    guid: '80b4e610-d3d1-482f-ae1f-b060243c4aad',
-                    name: '人类简史',
-                    cover: 'http://ebook.qikan.com/bookpicture/ds030561.jpg'
-                },
-                {
-                    guid: '4be2776f-3f2a-46d8-825f-b7ecca12e87b',
-                    name: '历史的教训',
-                    cover: 'http://ebook.qikan.com/bookpicture/ds030563.jpg'
-                }
-            ],
             swiperOption: {
                 pagination: '.swiper-pagination',
                 slidesPerView: 6,
